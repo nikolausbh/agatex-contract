@@ -21,4 +21,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://nikolausbh.github.io/agatex-contract/sitemap.xml
+Sitemap: https://www.agatex-contractmanufacturing.com/sitemap.xml
