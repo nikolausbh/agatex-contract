@@ -13,7 +13,7 @@
 (function () {
   "use strict";
 
-  var GA_MEASUREMENT_ID = "";   # <- eigene GA4-Property fuer Contract Manufacturing anlegen und ID hier eintragen
+  var GA_MEASUREMENT_ID = "G-6XWDM9C56Y";   // AGATEX Contract Manufacturing
   var CF_BEACON_TOKEN   = "";   // ← optional, z. B. "0123ab...": leer = Auto-Setup im CF-Dashboard
 
   /* ───────────────────────────  ab hier nichts ändern  ─────────────────── */
