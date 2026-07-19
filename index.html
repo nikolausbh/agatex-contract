@@ -338,6 +338,51 @@
     .cta-band-actions { display:flex; flex-wrap:wrap; gap:14px; }
     @media(max-width:640px){ .cta-band { padding:28px 24px; } .cta-band-actions { width:100%; } .cta-band-actions .btn-primary, .cta-band-actions .btn-secondary { flex:1; justify-content:center; } }
 
+    /* ── BROCHURE SECTION ── */
+    .brochure-section { background:var(--bg2); }
+    .brochure-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+    .brochure-cover-wrap { display:flex; justify-content:center; align-items:center; }
+    .brochure-cover {
+      width:260px; height:360px;
+      background:linear-gradient(160deg, #1a3257 0%, #0d2040 60%, rgba(13,142,82,0.18) 100%);
+      border-radius:8px 4px 4px 8px;
+      box-shadow:6px 6px 24px rgba(0,0,0,.28), -2px 0 8px rgba(0,0,0,.12), 10px 10px 48px rgba(26,50,87,0.28);
+      position:relative; overflow:hidden;
+      display:flex; flex-direction:column; justify-content:space-between; padding:30px;
+      border-left:5px solid var(--green);
+    }
+    .brochure-cover::before { content:''; position:absolute; top:-50px; right:-50px; width:190px; height:190px; border-radius:50%; background:rgba(13,142,82,0.1); border:1px solid rgba(13,142,82,0.18); }
+    .brochure-cover::after { content:''; position:absolute; bottom:-25px; left:-25px; width:110px; height:110px; border-radius:50%; background:rgba(255,255,255,0.04); }
+    .brochure-cover-logo { font-size:.7rem; font-weight:900; letter-spacing:.2em; color:rgba(255,255,255,.45); text-transform:uppercase; }
+    .brochure-cover-line { width:28px; height:2px; background:var(--green); margin:10px 0; }
+    .brochure-cover-title { font-size:1.5rem; font-weight:900; color:#fff; line-height:1.2; letter-spacing:-.02em; }
+    .brochure-cover-sub { font-size:.62rem; font-weight:600; letter-spacing:.1em; color:rgba(255,255,255,.45); text-transform:uppercase; margin-top:6px; }
+    .brochure-cover-badge { display:inline-flex; align-items:center; gap:5px; background:rgba(13,142,82,.9); color:#fff; font-size:.62rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:5px 11px; border-radius:100px; align-self:flex-start; }
+    .brochure-text h2 { font-size:clamp(1.7rem,3.5vw,2.6rem); font-weight:800; color:var(--navy); letter-spacing:-.03em; margin-bottom:16px; }
+    .brochure-text p { font-size:.97rem; color:var(--muted); line-height:1.75; margin-bottom:28px; }
+    .brochure-feats { display:flex; flex-direction:column; gap:9px; margin-bottom:32px; }
+    .brochure-feat { display:flex; align-items:center; gap:10px; font-size:.88rem; color:var(--text); }
+    .brochure-feat-dot { width:7px; height:7px; border-radius:50%; background:var(--green); flex-shrink:0; }
+
+    /* ── MODAL ── */
+    .modal-overlay { display:none; position:fixed; inset:0; z-index:9999; background:rgba(10,20,40,0.65); backdrop-filter:blur(4px); align-items:center; justify-content:center; }
+    .modal-overlay.open { display:flex; }
+    .modal-card { background:#fff; border-radius:20px; padding:44px; width:100%; max-width:460px; margin:16px; position:relative; box-shadow:0 24px 80px rgba(10,20,40,0.28); animation:modalIn .25s cubic-bezier(.34,1.3,.64,1); }
+    @keyframes modalIn { from{opacity:0;transform:scale(.92) translateY(16px)} to{opacity:1;transform:none} }
+    .modal-close { position:absolute; top:14px; right:14px; background:none; border:none; cursor:pointer; font-size:1.2rem; color:var(--muted); line-height:1; padding:6px 8px; border-radius:8px; transition:background .15s; }
+    .modal-close:hover { background:var(--bg2); }
+    .modal-eyebrow { font-size:.72rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--green); margin-bottom:8px; }
+    .modal-title { font-size:1.35rem; font-weight:800; color:var(--navy); margin-bottom:6px; }
+    .modal-sub { font-size:.87rem; color:var(--muted); line-height:1.6; margin-bottom:26px; }
+    .modal-form .fg { margin-bottom:14px; }
+    .modal-form label { display:block; font-size:.78rem; font-weight:600; color:var(--blue); margin-bottom:4px; }
+    .modal-form input { width:100%; padding:11px 13px; border:1.5px solid var(--border); border-radius:10px; font-size:.9rem; font-family:'Inter',sans-serif; transition:border .15s; box-sizing:border-box; }
+    .modal-form input:focus { outline:none; border-color:var(--green); }
+    .modal-submit { width:100%; padding:14px; background:linear-gradient(135deg,var(--green),var(--blue)); color:#fff; border:none; border-radius:12px; font-size:.95rem; font-weight:700; cursor:pointer; margin-top:10px; transition:opacity .15s; font-family:'Inter',sans-serif; }
+    .modal-submit:hover { opacity:.88; }
+    .modal-note { text-align:center; font-size:.73rem; color:var(--muted); margin-top:14px; line-height:1.55; }
+    @media(max-width:768px){ .brochure-wrapper { grid-template-columns:1fr; gap:40px; } .brochure-cover-wrap { order:-1; } }
+
     /* ── VALUES (about) ── */
     .val-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:24px; margin-top:48px; }
     .val-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:30px; box-shadow:0 2px 12px var(--shadow); }
@@ -580,7 +625,7 @@
         </div>
         <div class="cta-band-actions">
           <a href="#kontakt" class="btn-primary"><i class="fa-solid fa-paper-plane"></i><span data-i18n="cta.btn1">Projekt anfragen</span></a>
-          <a href="mailto:office@agatex.at?subject=Brosch%C3%BCre%20Lohnproduktion%20%26%20Co-Development&body=Bitte%20senden%20Sie%20mir%20die%20AGATEX-Brosch%C3%BCre%20Lohnproduktion%20%26%20Co-Development.%0D%0A%0D%0AName%3A%0D%0AUnternehmen%3A%0D%0A" class="btn-secondary"><i class="fa-solid fa-file-lines"></i><span data-i18n="cta.btn2">Broschüre anfragen</span></a>
+          <a href="#broschuere" onclick="openBrochureModal();return false;" class="btn-secondary"><i class="fa-solid fa-file-lines"></i><span data-i18n="cta.btn2">Broschüre anfragen</span></a>
         </div>
       </div>
     </div>
@@ -746,6 +791,37 @@
     </div>
   </section>
 
+  <!-- ── BROSCHÜRE ── -->
+  <section class="brochure-section" id="broschuere">
+    <div class="container">
+      <div class="brochure-wrapper">
+        <div class="brochure-cover-wrap reveal">
+          <div class="brochure-cover">
+            <div class="brochure-cover-logo">AGATEX</div>
+            <div>
+              <div class="brochure-cover-line"></div>
+              <div class="brochure-cover-title">Lohnproduktion<br>&amp; Co-Development</div>
+              <div class="brochure-cover-sub">Contract Manufacturing · Specialty Chemicals</div>
+            </div>
+            <div class="brochure-cover-badge">2026</div>
+          </div>
+        </div>
+        <div class="brochure-text">
+          <div class="sec-label reveal" data-i18n="brochure.label">Broschüre</div>
+          <h2 class="reveal" data-i18n="brochure.h2">Lohnproduktion &amp; Co-Development<br>auf einen Blick.</h2>
+          <p class="reveal" data-i18n="brochure.p">Unsere Broschüre „Lohnproduktion &amp; Co-Development“ bietet einen kompakten Überblick über AGATEX als Fertigungspartner – von der Formulierungschemie über Scale-up und Supply Chain bis zu Qualität und Analytik.</p>
+          <div class="brochure-feats reveal">
+            <div class="brochure-feat"><div class="brochure-feat-dot"></div> <span data-i18n="brochure.feat1">Toll Manufacturing &amp; Co-Development</span></div>
+            <div class="brochure-feat"><div class="brochure-feat-dot"></div> <span data-i18n="brochure.feat2">Batch-Reaktoren 160–30.000 L</span></div>
+            <div class="brochure-feat"><div class="brochure-feat-dot"></div> <span data-i18n="brochure.feat3">Veresterung · Amidierung · Phosphorsäureester · Emulgierung</span></div>
+            <div class="brochure-feat"><div class="brochure-feat-dot"></div> <span data-i18n="brochure.feat4">Labor &amp; Analytik · ISO 9001/14001 · REACH · PFAS-frei</span></div>
+          </div>
+          <button class="btn-primary reveal" onclick="openBrochureModal()" data-i18n="brochure.btn">📥 Broschüre anfragen</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── CONTACT ── -->
   <section class="contact-section" id="kontakt">
     <div class="container">
@@ -823,6 +899,28 @@
 <!-- DETAIL VIEW -->
 <!-- ══════════════════════════════════════════════════════════ -->
 <div id="detail-view"></div>
+
+<!-- ── BROCHURE MODAL ── -->
+<div class="modal-overlay" id="brochureModal" onclick="if(event.target===this)closeBrochureModal()">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeBrochureModal()" aria-label="Schließen">✕</button>
+    <div class="modal-eyebrow" data-i18n="modal.eyebrow">Kostenlos &amp; unverbindlich</div>
+    <div class="modal-title" data-i18n="modal.title">Broschüre anfragen</div>
+    <div class="modal-sub" data-i18n="modal.sub">Wir senden Ihnen unsere Broschüre „Lohnproduktion &amp; Co-Development“ direkt per E-Mail zu.</div>
+    <form class="modal-form" id="brochureForm">
+      <div class="fg"><label data-i18n="modal.name">Name *</label><input type="text" id="bName" placeholder="Max Mustermann" required></div>
+      <div class="fg"><label data-i18n="modal.company">Unternehmen *</label><input type="text" id="bCompany" placeholder="Muster GmbH" required></div>
+      <div class="fg"><label data-i18n="modal.email">E-Mail *</label><input type="email" id="bEmail" placeholder="max@muster.com" required></div>
+      <button type="submit" class="modal-submit" id="brochureSubmitBtn" data-i18n="modal.submit">📧 Broschüre anfordern</button>
+    </form>
+    <div id="brochureSuccess" style="display:none;text-align:center;padding:24px 0;">
+      <div style="font-size:2.5rem;margin-bottom:12px;">✅</div>
+      <div style="font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--green)" data-i18n="modal.success">Vielen Dank!</div>
+      <div style="color:var(--muted);line-height:1.6;" data-i18n="modal.successSub">Ihre Anfrage wurde erfolgreich gesendet.<br>Wir melden uns schnell bei Ihnen.</div>
+    </div>
+    <div class="modal-note" data-i18n="modal.note">Ihre Anfrage wird per E-Mail an unser Team weitergeleitet.<br>Wir melden uns schnell bei Ihnen.</div>
+  </div>
+</div>
 
 <!-- ── FOOTER ── -->
 <footer>
@@ -908,6 +1006,9 @@ const TRANSLATIONS = {
     'form.message':'Nachricht','form.message.ph':'Beschreiben Sie Ihr Vorhaben...','form.submit':'Anfrage senden',
     'footer.tagline':'Lohnproduktion &amp; Co-Development von Spezialchemie. Seit 1921 – Edt bei Lambach, Österreich &amp; Prachinburi, Thailand.','footer.col1':'Leistungen','footer.col2':'Kontakt','footer.solutions':'Leistungen','footer.approach':'Ansatz','footer.privacy':'Datenschutz','footer.imprint':'Impressum',
     'back':'← Zurück zur Übersicht',
+    'brochure.label':'Broschüre','brochure.h2':'Lohnproduktion &amp; Co-Development<br>auf einen Blick.','brochure.p':'Unsere Broschüre „Lohnproduktion &amp; Co-Development“ bietet einen kompakten Überblick über AGATEX als Fertigungspartner – von der Formulierungschemie über Scale-up und Supply Chain bis zu Qualität und Analytik.','brochure.btn':'📥 Broschüre anfragen',
+    'brochure.feat1':'Toll Manufacturing &amp; Co-Development','brochure.feat2':'Batch-Reaktoren 160–30.000 L','brochure.feat3':'Veresterung · Amidierung · Phosphorsäureester · Emulgierung','brochure.feat4':'Labor &amp; Analytik · ISO 9001/14001 · REACH · PFAS-frei',
+    'modal.eyebrow':'Kostenlos &amp; unverbindlich','modal.title':'Broschüre anfragen','modal.sub':'Wir senden Ihnen unsere Broschüre „Lohnproduktion &amp; Co-Development“ direkt per E-Mail zu.','modal.name':'Name *','modal.company':'Unternehmen *','modal.email':'E-Mail *','modal.submit':'📧 Broschüre anfordern','modal.success':'Vielen Dank!','modal.successSub':'Ihre Anfrage wurde erfolgreich gesendet.<br>Wir melden uns schnell bei Ihnen.','modal.note':'Ihre Anfrage wird per E-Mail an unser Team weitergeleitet.<br>Wir melden uns schnell bei Ihnen.',
   },
   en: {
     'nav.solutions':'Services','nav.about':'Approach','nav.faq':'FAQ','nav.contact':'Contact',
@@ -955,6 +1056,9 @@ const TRANSLATIONS = {
     'form.message':'Message','form.message.ph':'Describe your project...','form.submit':'Send Inquiry',
     'footer.tagline':'Contract manufacturing &amp; co-development of specialty chemicals. Since 1921 – Edt bei Lambach, Austria &amp; Prachinburi, Thailand.','footer.col1':'Services','footer.col2':'Contact','footer.solutions':'Services','footer.approach':'Approach','footer.privacy':'Privacy','footer.imprint':'Imprint',
     'back':'← Back to Overview',
+    'brochure.label':'Brochure','brochure.h2':'Contract Manufacturing &amp; Co-Development<br>at a Glance.','brochure.p':'Our “Contract Manufacturing &amp; Co-Development” brochure gives a compact overview of AGATEX as a manufacturing partner – from formulation chemistry through scale-up and supply chain to quality and analytics.','brochure.btn':'📥 Request Brochure',
+    'brochure.feat1':'Toll Manufacturing &amp; Co-Development','brochure.feat2':'Batch reactors 160–30,000 L','brochure.feat3':'Esterification · Amidation · Phosphoric acid esters · Emulsification','brochure.feat4':'Lab &amp; Analytics · ISO 9001/14001 · REACH · PFAS-free',
+    'modal.eyebrow':'Free &amp; non-binding','modal.title':'Request Brochure','modal.sub':'We will send you our “Contract Manufacturing &amp; Co-Development” brochure directly by e-mail.','modal.name':'Name *','modal.company':'Company *','modal.email':'E-Mail *','modal.submit':'📧 Request Brochure','modal.success':'Thank you!','modal.successSub':'Your request has been sent successfully.<br>We will get back to you quickly.','modal.note':'Your request will be forwarded to our team by e-mail.<br>We will get back to you quickly.',
   },
   zh: {
     'nav.solutions':'服务','nav.about':'我们的方式','nav.faq':'常见问题','nav.contact':'联系我们',
@@ -1002,6 +1106,9 @@ const TRANSLATIONS = {
     'form.message':'留言','form.message.ph':'描述您的项目...','form.submit':'发送询问',
     'footer.tagline':'特种化学品代加工与共同开发。自1921年起——奥地利埃德特（兰巴赫附近）与泰国巴真武里。','footer.col1':'服务','footer.col2':'联系','footer.solutions':'服务','footer.approach':'我们的方式','footer.privacy':'隐私政策','footer.imprint':'公司信息',
     'back':'← 返回概览',
+    'brochure.label':'产品手册','brochure.h2':'代加工与共同开发<br>一览全貌。','brochure.p':'我们的《代加工与共同开发》手册提供 AGATEX 作为生产伙伴的简明概览——从配方化学、放大、供应链到质量与分析。','brochure.btn':'📥 索取产品手册',
+    'brochure.feat1':'代加工与共同开发','brochure.feat2':'间歇式反应釜 160–30,000 升','brochure.feat3':'酯化 · 酰胺化 · 磷酸酯 · 乳化','brochure.feat4':'实验室与分析 · ISO 9001/14001 · REACH · 无PFAS',
+    'modal.eyebrow':'免费且无义务','modal.title':'索取产品手册','modal.sub':'我们将把《代加工与共同开发》手册直接通过电子邮件发送给您。','modal.name':'姓名 *','modal.company':'公司 *','modal.email':'电子邮件 *','modal.submit':'📧 索取产品手册','modal.success':'感谢！','modal.successSub':'您的请求已成功发送。<br>我们将尽快与您联系。','modal.note':'您的请求将通过电子邮件转发给我们的团队。<br>我们将尽快与您联系。',
   }
 };
 
@@ -1395,6 +1502,45 @@ function submitForm(e) {
   alert(currentLang === 'de' ? 'Vielen Dank! Wir melden uns bald.' : currentLang === 'en' ? 'Thank you! We will be in touch soon.' : '感谢！我们将尽快与您联系。');
   e.target.reset();
 }
+
+// ── BROCHURE MODAL (Web3Forms) ───────────────────────────────
+const WEB3FORMS_KEY = '44292293-69bb-4624-900c-1a493d6b1427';
+function openBrochureModal() { document.getElementById('brochureModal').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeBrochureModal() { document.getElementById('brochureModal').classList.remove('open'); document.body.style.overflow=''; }
+document.getElementById('brochureForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name    = document.getElementById('bName').value.trim();
+  const company = document.getElementById('bCompany').value.trim();
+  const email   = document.getElementById('bEmail').value.trim();
+  const btn     = document.getElementById('brochureSubmitBtn');
+  const sending = currentLang==='de' ? 'Wird gesendet…' : currentLang==='en' ? 'Sending…' : '发送中…';
+  const failMsg = currentLang==='de' ? 'Fehler beim Senden. Bitte kontaktieren Sie uns direkt unter salesfc@agatex.at'
+                : currentLang==='en' ? 'Sending failed. Please contact us directly at salesfc@agatex.at'
+                : '发送失败。请直接联系 salesfc@agatex.at';
+  btn.disabled = true; btn.textContent = sending;
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_KEY,
+      subject: 'Anfrage: AGATEX Broschüre Lohnproduktion & Co-Development',
+      from_name: 'AGATEX Contract Manufacturing Website',
+      name: name,
+      email: email,
+      message: 'Broschürenanfrage (Lohnproduktion & Co-Development)\n\nName: ' + name + '\nUnternehmen: ' + company + '\nE-Mail: ' + email
+    })
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.success) {
+      document.getElementById('brochureForm').style.display = 'none';
+      document.getElementById('brochureSuccess').style.display = 'block';
+    } else {
+      alert(failMsg); btn.disabled = false; btn.textContent = tr('modal.submit');
+    }
+  })
+  .catch(() => { alert(failMsg); btn.disabled = false; btn.textContent = tr('modal.submit'); });
+});
 
 // ── REVEAL ANIMATION ─────────────────────────────────────────
 function observeReveal() {
