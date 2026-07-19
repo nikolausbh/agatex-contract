@@ -311,7 +311,7 @@
     .sol-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:24px; margin-top:56px; }
     .sol-card {
       background:#fff; border:1px solid var(--border); border-radius:var(--radius);
-      padding:32px; cursor:pointer; transition:all var(--ease);
+      padding:32px; cursor:default; transition:all var(--ease);
       box-shadow:0 2px 12px var(--shadow); position:relative; overflow:hidden;
     }
     .sol-card::before {
@@ -330,6 +330,13 @@
     .sol-tag { font-size:.72rem; font-weight:600; background:var(--green-l); color:var(--green); padding:3px 10px; border-radius:100px; border:1px solid rgba(13,142,82,0.15); }
     .sol-arrow { position:absolute; bottom:24px; right:24px; width:32px; height:32px; border-radius:50%; background:var(--green-l); display:flex; align-items:center; justify-content:center; color:var(--green); font-size:14px; transition:all var(--ease); }
     .sol-card:hover .sol-arrow { background:var(--green); color:#fff; transform:translateX(3px); }
+
+    /* ── CTA BAND ── */
+    .cta-band { margin-top:56px; background:linear-gradient(135deg, rgba(13,142,82,0.08), rgba(26,50,87,0.08)); border:1px solid rgba(13,142,82,0.22); border-radius:20px; padding:34px 40px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px; }
+    .cta-band-text h3 { font-size:1.35rem; font-weight:800; color:var(--blue); margin-bottom:6px; }
+    .cta-band-text p { font-size:.95rem; color:var(--muted); line-height:1.6; max-width:540px; }
+    .cta-band-actions { display:flex; flex-wrap:wrap; gap:14px; }
+    @media(max-width:640px){ .cta-band { padding:28px 24px; } .cta-band-actions { width:100%; } .cta-band-actions .btn-primary, .cta-band-actions .btn-secondary { flex:1; justify-content:center; } }
 
     /* ── VALUES (about) ── */
     .val-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:24px; margin-top:48px; }
@@ -565,6 +572,16 @@
       </div>
       <div class="sol-grid" id="sol-grid">
         <!-- filled by renderSolutions() -->
+      </div>
+      <div class="cta-band reveal">
+        <div class="cta-band-text">
+          <h3 data-i18n="cta.h">Interesse an einer Zusammenarbeit?</h3>
+          <p data-i18n="cta.p">Beschreiben Sie uns Ihr Vorhaben oder fordern Sie unsere Broschüre an – wir melden uns mit einem konkreten Vorschlag.</p>
+        </div>
+        <div class="cta-band-actions">
+          <a href="#kontakt" class="btn-primary"><i class="fa-solid fa-paper-plane"></i><span data-i18n="cta.btn1">Projekt anfragen</span></a>
+          <a href="mailto:office@agatex.at?subject=Brosch%C3%BCre%20Lohnproduktion%20%26%20Co-Development&body=Bitte%20senden%20Sie%20mir%20die%20AGATEX-Brosch%C3%BCre%20Lohnproduktion%20%26%20Co-Development.%0D%0A%0D%0AName%3A%0D%0AUnternehmen%3A%0D%0A" class="btn-secondary"><i class="fa-solid fa-file-lines"></i><span data-i18n="cta.btn2">Broschüre anfragen</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -853,6 +870,7 @@ const TRANSLATIONS = {
     'hero.cta1':'Leistungen entdecken','hero.cta2':'Projekt anfragen',
     'trust.founded':'In 5. Generation','trust.reactors':'Batch-Reaktoren','trust.iso':'9001 &amp; 14001 zertifiziert','trust.reach':'konform &amp; PFAS-frei',
     'sol.label':'Leistungen','sol.h2':'Ein Partner entlang der<br>gesamten Wertschöpfungskette','sol.intro':'Von der klassischen Auftragsfertigung bis zum innovativen Co-Development – AGATEX begleitet den gesamten Produktzyklus und reduziert Schnittstellen für maximale Effizienz.',
+    'cta.h':'Interesse an einer Zusammenarbeit?','cta.p':'Beschreiben Sie uns Ihr Vorhaben oder fordern Sie unsere Broschüre an – wir melden uns mit einem konkreten Vorschlag.','cta.btn1':'Projekt anfragen','cta.btn2':'Broschüre anfragen',
     'about.label':'Unser Ansatz','about.h2':'Flexibel. Kompromisslos.<br>Schnell.','about.intro':'AGATEX versteht sich als Partner auf Augenhöhe in der Entwicklung, Optimierung und Skalierung chemischer Produkte. Ob neues Konzept, bestehende Rezeptur oder geplante Produktionssteigerung – Ihre Rezeptur bleibt dabei stets Ihr Eigentum.',
     'val.1.title':'Effizienz','val.1.desc':'Optimierte Prozesse vom Labor bis zur Produktion. Weniger Schnittstellen, beschleunigte Projekte.',
     'val.2.title':'Zuverlässigkeit','val.2.desc':'Reproduzierbare Qualität – jede Charge, jedes Mal. Strenges QM und vollständige Dokumentation.',
@@ -899,6 +917,7 @@ const TRANSLATIONS = {
     'hero.cta1':'Explore Services','hero.cta2':'Request a Project',
     'trust.founded':'5th generation','trust.reactors':'Batch reactors','trust.iso':'9001 &amp; 14001 certified','trust.reach':'compliant &amp; PFAS-free',
     'sol.label':'Services','sol.h2':'One partner across the<br>entire value chain','sol.intro':'From classic contract manufacturing to innovative co-development – AGATEX supports the entire product lifecycle and reduces interfaces for maximum efficiency.',
+    'cta.h':'Interested in working together?','cta.p':'Tell us about your plans or request our brochure – we will get back to you with a concrete proposal.','cta.btn1':'Request a project','cta.btn2':'Request brochure',
     'about.label':'Our Approach','about.h2':'Flexible. Uncompromising.<br>Fast.','about.intro':'AGATEX sees itself as a partner on equal terms in the development, optimisation and scaling of chemical products. Whether a new concept, an existing formulation or a planned increase in capacity – your formulation always remains your property.',
     'val.1.title':'Efficiency','val.1.desc':'Optimised processes from laboratory to production. Fewer interfaces, accelerated projects.',
     'val.2.title':'Reliability','val.2.desc':'Reproducible quality – every batch, every time. Rigorous QM and full documentation.',
@@ -945,6 +964,7 @@ const TRANSLATIONS = {
     'hero.cta1':'探索服务','hero.cta2':'咨询项目',
     'trust.founded':'家族第五代','trust.reactors':'间歇式反应釜','trust.iso':'ISO 9001 &amp; 14001认证','trust.reach':'REACH合规 &amp; 无PFAS',
     'sol.label':'服务','sol.h2':'贯穿整条价值链的<br>合作伙伴','sol.intro':'从经典的委托加工到创新的共同开发——AGATEX贯穿整个产品周期，减少接口环节以实现最高效率。',
+    'cta.h':'有意开展合作？','cta.p':'告诉我们您的计划，或索取我们的手册——我们将以具体方案回复您。','cta.btn1':'咨询项目','cta.btn2':'索取手册',
     'about.label':'我们的方式','about.h2':'灵活。不妥协。<br>快速。','about.intro':'AGATEX将自己视为在化学产品开发、优化和放大方面的平等合作伙伴。无论是新概念、现有配方还是计划中的产能提升——您的配方始终归您所有。',
     'val.1.title':'高效','val.1.desc':'从实验室到生产的优化流程。更少的接口，加速的项目。',
     'val.2.title':'可靠','val.2.desc':'可重现的质量——每一批，每一次。严格的质量管理和完整的文档。',
@@ -1311,13 +1331,12 @@ function renderSolutions() {
     const desc = gl(p,'desc') || '';
     const tags = gl(p,'tags') || [];
     const iconEl = p.iconFA ? `<i class="fa-solid ${p.iconFA}"></i>` : iconHtml(p.icon||'⚗️');
-    return `<div class="sol-card reveal" onclick="showDetail('${key}')">
+    return `<div class="sol-card reveal">
       <div class="sol-icon">${iconEl}</div>
       ${p.brand ? `<div class="sol-brand">${p.brand}</div>` : ''}
       <div class="sol-title">${title}</div>
       <div class="sol-desc">${desc}</div>
       <div class="sol-tags">${tags.slice(0,4).map(t=>`<span class="sol-tag">${t}</span>`).join('')}</div>
-      <div class="sol-arrow"><i class="fa-solid fa-arrow-right"></i></div>
     </div>`;
   }).join('');
   observeReveal();
